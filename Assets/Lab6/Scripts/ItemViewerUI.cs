@@ -34,6 +34,9 @@ public class ItemViewerUI : MonoBehaviour
     {
         itemGenerator = GetComponent<ItemGenerator>();
         rarityStarsEffect = GetComponent<RarityStarsEffect>();
+        if (itemGenerator.items[0].IsEmpty()) {
+            GeneratItem();
+        }
         ShowItem();
     }
 

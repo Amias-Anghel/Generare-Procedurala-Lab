@@ -30,4 +30,8 @@ public class Item : ScriptableObject
         item_rarity = rarity.common;
         special_ability = ability.none;
     }
+
+    public bool IsEmpty() {
+        return item_name == "" || item_name == "empty";
+    }
 }

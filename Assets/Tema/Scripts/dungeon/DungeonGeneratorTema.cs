@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class DungeonGenerator : MonoBehaviour
+public class DungeonGeneratorTema : MonoBehaviour
 {
     [SerializeField] private GameObject wall, tile, stairs;
 
@@ -15,10 +15,11 @@ public class DungeonGenerator : MonoBehaviour
     private int currentDungeonLevel = 0;
 
     private List<Room> rooms;
+    private List<List<Room>> allRooms;
     private List<Vector2> tilesPositions;
 
 
-    struct Room {
+    public struct Room {
         public int x, y;
         public int width, height;
 
@@ -34,10 +35,15 @@ public class DungeonGenerator : MonoBehaviour
     {
         Vector2 stairs = Vector2.negativeInfinity;
 
+        allRooms = new List<List<Room>>();
+
         for (currentDungeonLevel = 0; currentDungeonLevel < dungeonLevels; currentDungeonLevel++) {
             Transform levelParent = new GameObject("level"+currentDungeonLevel).transform;
             stairs = GenerateDungeonLevel(stairs, levelParent);
+            levelParent.SetParent(transform);
         }
+
+        transform.position = new Vector3(0, 1000, 0);
     }
 
     private Vector2 GenerateDungeonLevel(Vector2 prevStairs, Transform levelParent) {
@@ -72,6 +78,8 @@ public class DungeonGenerator : MonoBehaviour
 
         
         AddWalls(levelParent);
+
+        allRooms.Add(rooms);
 
         return nextStairs;
     }
@@ -190,5 +198,21 @@ public class DungeonGenerator : MonoBehaviour
                 }
             }
         }
+    }
+
+    public Vector3 GetPositionOnLevel(int level) {
+        List<Room> levelRooms = allRooms[level];
+        
+        Room room = levelRooms[Random.Range(0, levelRooms.Count)];
+        int x = Random.Range(room.x, room.width);
+        int y = Random.Range(room.y, room.height);
+
+        int h = dungeonLevelHeight * level;
+
+        return transform.position + new Vector3(x, h + 1, y);
+    }
+
+    public int GetDungeonLevelHeight() {
+        return dungeonLevelHeight;
     }
 }

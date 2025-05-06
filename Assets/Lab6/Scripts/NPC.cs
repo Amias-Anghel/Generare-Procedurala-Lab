@@ -21,4 +21,8 @@ public class NPC : ScriptableObject
         life = 0;
         damage = 0;
     }
+
+    public bool IsEmpty() {
+        return npc_name == "" || npc_name == "empty";
+    }
 }

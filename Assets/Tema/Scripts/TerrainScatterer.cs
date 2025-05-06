@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class TerrainScatterer : MonoBehaviour
 {
-    public GameObject[] plantsToSpawn;
+    public GameObject[] objToSpawn;
     public int spawnCount = 500;
     public bool randomYRotation = true;
 
     public Vector2 scaleRange = new Vector2(1f, 1f);
 
-    void Start()
+    void Awake()
     {
         TerrainGeneratorTema.OnTerrainGenerated += Scatter;
     }
@@ -18,6 +18,8 @@ public class TerrainScatterer : MonoBehaviour
     public void Scatter(Terrain terrain) {
         var terrainData = terrain.terrainData;
         var terrainPos = terrain.transform.position;
+
+        Debug.Log($"Spawining {objToSpawn[0].name} on {terrain.name}");
 
         for (int i = 0; i < spawnCount; i++)
         {
@@ -33,7 +35,7 @@ public class TerrainScatterer : MonoBehaviour
             float y = terrain.SampleHeight(worldPos) + terrainPos.y;
             worldPos.y = y;
 
-            var spawned = Instantiate(plantsToSpawn[Random.Range(0, plantsToSpawn.Length)], worldPos, Quaternion.identity, transform);
+            var spawned = Instantiate(objToSpawn[Random.Range(0, objToSpawn.Length)], worldPos, Quaternion.identity, transform);
 
             if (randomYRotation)
             {

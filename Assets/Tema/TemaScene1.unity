@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79778a1c8d13e504eb158ed0c916cc09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantsToSpawn:
+  objToSpawn:
   - {fileID: 3647135077672086497, guid: 28997615a0a06fe44bab4f127585547e, type: 3}
   spawnCount: 1
   randomYRotation: 1
@@ -263,6 +263,60 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1238374879}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &840546162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 840546164}
+  - component: {fileID: 840546163}
+  m_Layer: 0
+  m_Name: Dungeon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &840546163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840546162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66966a44f51e2094cb7b01806bf3228a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wall: {fileID: 4641690274789918653, guid: 6639929502045dd41a70228da41b324b, type: 3}
+  tile: {fileID: 6589192887287291608, guid: 416b84346ff79c84da13528c566b486d, type: 3}
+  stairs: {fileID: 4641690274789918653, guid: 51e882ed9b0ca1a44bc081951aaa1a40, type: 3}
+  dungeonWidth: 64
+  dungeonHeight: 64
+  roomSizeMin: 6
+  roomSizeMax: 12
+  maxIterations: 5
+  dungeonLevels: 3
+  dungeonLevelHeight: 3
+--- !u!4 &840546164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840546162}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1009199908
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79778a1c8d13e504eb158ed0c916cc09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantsToSpawn:
+  objToSpawn:
   - {fileID: 7827050584713961119, guid: 349aae1c54b1593468202b39306b505f, type: 3}
   - {fileID: 224331103794508540, guid: f7bcbcfb930760a4caca6368667050c6, type: 3}
   - {fileID: 5510551767737848707, guid: 5556e38d9baa6504f9c28516f659f776, type: 3}
@@ -504,7 +558,7 @@ GameObject:
   - component: {fileID: 1238374881}
   m_Layer: 0
   m_Name: FirstPersonPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -592,8 +646,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 10, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 626420222}
   m_Father: {fileID: 0}
@@ -672,7 +726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79778a1c8d13e504eb158ed0c916cc09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantsToSpawn:
+  objToSpawn:
   - {fileID: 8689254593779959914, guid: 232dd870fc325c44f881a56b8d1207c0, type: 3}
   - {fileID: 453362597824568670, guid: 5b4be5e73b1eb7442b7e747b73114dd2, type: 3}
   - {fileID: 114886752571992794, guid: cd3d847b80f7afe4f8f83be1a418899b, type: 3}
@@ -832,7 +886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79778a1c8d13e504eb158ed0c916cc09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantsToSpawn:
+  objToSpawn:
   - {fileID: 7272926810945044985, guid: 085735d16f7f43f4cbc494635c487fa2, type: 3}
   - {fileID: 888151722284579015, guid: 07b6e72ee8c6c6340ba9f451cce5b7b2, type: 3}
   - {fileID: 1874671576440167401, guid: 935bb60cec6a44a4c8b8d456c53fdbf9, type: 3}
@@ -851,3 +905,4 @@ SceneRoots:
   - {fileID: 2030060430}
   - {fileID: 237868333}
   - {fileID: 1674542101}
+  - {fileID: 840546164}

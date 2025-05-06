@@ -28,6 +28,9 @@ public class NPCViewerUI : MonoBehaviour
     void Start()
     {
         npcGenerator = GetComponent<NPCGenerator>();
+        if (npcGenerator.npc_slots[0].IsEmpty()) {
+            GenerateNPC();
+        }
         ShowNPC();
     }
 
