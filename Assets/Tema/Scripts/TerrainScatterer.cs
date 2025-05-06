@@ -12,10 +12,10 @@ public class TerrainScatterer : MonoBehaviour
 
     void Start()
     {
-        TerrainGeneratorTema.OnTerrainGenerated += SpawnPlants;
+        TerrainGeneratorTema.OnTerrainGenerated += Scatter;
     }
 
-    public void SpawnPlants(Terrain terrain) {
+    public void Scatter(Terrain terrain) {
         var terrainData = terrain.terrainData;
         var terrainPos = terrain.transform.position;
 

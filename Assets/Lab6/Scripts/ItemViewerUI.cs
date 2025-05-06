@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class ItemViewerUI : MonoBehaviour
 {
-    private ItemGenerator itemGenerator;
-    private RarityStarsEffect rarityStarsEffect;
+    [SerializeField] private ItemGenerator itemGenerator;
+    [SerializeField] private RarityStarsEffect rarityStarsEffect;
 
     [SerializeField] private TMP_Text display_name;
     [SerializeField] private TMP_Text display_type;
@@ -51,6 +51,7 @@ public class ItemViewerUI : MonoBehaviour
         ShowItem();
     }
 
+    [ContextMenu("Generate Item")]
     public void GeneratItem() {
         itemGenerator.GenerateItem(index);
         ShowItem();
