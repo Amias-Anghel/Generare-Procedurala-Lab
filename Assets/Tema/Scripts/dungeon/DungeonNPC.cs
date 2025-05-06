@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tema_NPC : MonoBehaviour
+public class DungeonNPC : MonoBehaviour
 {
-    [SerializeField] private NPC npc;
-
+    
 }

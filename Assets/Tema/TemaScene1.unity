@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 626420222}
   - component: {fileID: 626420221}
   - component: {fileID: 626420220}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -273,6 +273,8 @@ GameObject:
   m_Component:
   - component: {fileID: 840546164}
   - component: {fileID: 840546163}
+  - component: {fileID: 840546165}
+  - component: {fileID: 840546166}
   m_Layer: 0
   m_Name: Dungeon
   m_TagString: Untagged
@@ -317,6 +319,60 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &840546165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840546162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 318d8f0b168dac6498db26e8151c4829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcs:
+  - {fileID: 11400000, guid: 298fbd222a0f2d14cbac2bba24099a8a, type: 2}
+  - {fileID: 11400000, guid: f15370d51c916e14fa94e68eabb86c75, type: 2}
+  - {fileID: 11400000, guid: 9e97c135b5a2c0e4684f9fa87f39d273, type: 2}
+  - {fileID: 11400000, guid: 68bd4895c5540a4478f5fcb8666db152, type: 2}
+  - {fileID: 11400000, guid: 1c15b12d7e9e8fb4782c3d891c23b247, type: 2}
+  - {fileID: 11400000, guid: 97fe50eed8e44804eb93ea2ec34b6f97, type: 2}
+  - {fileID: 11400000, guid: 5f65cdb668e09f54588aaf4b48a4a6b0, type: 2}
+  - {fileID: 11400000, guid: a0b297b68b660d54bbdc95f473b8c261, type: 2}
+  - {fileID: 11400000, guid: 271bbf0c67ef8f84e890302556d322e0, type: 2}
+  - {fileID: 11400000, guid: a5943203b33d18546999822d3bb71594, type: 2}
+  - {fileID: 11400000, guid: 15413bf2cb8e2b547891e02a464716ab, type: 2}
+  - {fileID: 11400000, guid: fc8e6976259d84044a716249f59e5049, type: 2}
+  npcPrefab: {fileID: 6879534015989763788, guid: 3fe960c1809805d428eb09c08346809e, type: 3}
+  dungeon: {fileID: 840546163}
+--- !u!114 &840546166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840546162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 341e3b6d0f101654f9ca14cdedc91748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 11400000, guid: d98de6f297a886c47b257d26a74f01e0, type: 2}
+  - {fileID: 11400000, guid: fb9988e8ce3d515429f6df2feb442e81, type: 2}
+  - {fileID: 11400000, guid: 0c5983b40fa319a429c6d4b562b079ae, type: 2}
+  - {fileID: 11400000, guid: 151a35f96fe909a4c995722aae71a40b, type: 2}
+  - {fileID: 11400000, guid: b062136ccd71b4c49a6a64048ba2377e, type: 2}
+  - {fileID: 11400000, guid: 591fd8e7ee5cf764c93593f0dc0fd6d9, type: 2}
+  - {fileID: 11400000, guid: 0f7c6e20df74998449a665e00ac310e8, type: 2}
+  - {fileID: 11400000, guid: 234230b3a77907545bb6c932d83aa3f0, type: 2}
+  - {fileID: 11400000, guid: 627e4b3667209864db7b2c7a4e09fde1, type: 2}
+  - {fileID: 11400000, guid: d29ba3cd3c60715489a526a9e7920958, type: 2}
+  - {fileID: 11400000, guid: 5da01a185e310004c8bbe4498cd0eb27, type: 2}
+  - {fileID: 11400000, guid: e3e05a21bdb33664a92b52fe64526a0b, type: 2}
+  itemPrefab: {fileID: 114886752571992794, guid: cd3d847b80f7afe4f8f83be1a418899b, type: 3}
+  dungeon: {fileID: 840546163}
 --- !u!1 &1009199908
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +612,7 @@ GameObject:
   - component: {fileID: 1238374876}
   - component: {fileID: 1238374880}
   - component: {fileID: 1238374881}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirstPersonPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -576,7 +632,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0

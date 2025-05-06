@@ -26,8 +26,12 @@ public class DungeonStairs : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && canTeleport) {
-            int h = FindObjectOfType<DungeonGeneratorTema>().GetDungeonLevelHeight();
+            DungeonGeneratorTema dungeon = FindObjectOfType<DungeonGeneratorTema>();
+            int h = dungeon.GetDungeonLevelHeight();
+            dungeon.GetComponent<DungeonNPCSpawner>().SpawnNPCsOnLevel();
+            dungeon.GetComponent<DungeonItemSpawner>().SpawnItemsOnLevel();
             player.position = transform.position + new Vector3(0, h + 1, 0);
+            canTeleport = false;
         }
     }
 }

@@ -55,6 +55,8 @@ public class DungeonGeneratorTema : MonoBehaviour
         // rect area -> pt verificarea divizarii spatiului
         BSP_GenerateRooms (maxIterations, new Rect(0, 0, dungeonWidth, dungeonHeight));
 
+        allRooms.Add(rooms);
+
         if (prevStairs.x != Vector2.negativeInfinity.x) {
             
             rooms.Add(new Room(roomSizeMin, roomSizeMin, (int)prevStairs.x, (int)prevStairs.y));
@@ -78,8 +80,6 @@ public class DungeonGeneratorTema : MonoBehaviour
 
         
         AddWalls(levelParent);
-
-        allRooms.Add(rooms);
 
         return nextStairs;
     }
