@@ -19,8 +19,6 @@ public class TerrainScatterer : MonoBehaviour
         var terrainData = terrain.terrainData;
         var terrainPos = terrain.transform.position;
 
-        Debug.Log($"Spawining {objToSpawn[0].name} on {terrain.name}");
-
         for (int i = 0; i < spawnCount; i++)
         {
             float randomX = Random.Range(0f, terrainData.size.x);
