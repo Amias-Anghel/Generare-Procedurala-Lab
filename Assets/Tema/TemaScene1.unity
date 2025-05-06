@@ -277,7 +277,6 @@ GameObject:
   - component: {fileID: 1055384193}
   - component: {fileID: 1055384192}
   - component: {fileID: 1055384195}
-  - component: {fileID: 1055384196}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -372,25 +371,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1357517c12719945b336f6df980bd20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1055384196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1055384191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79778a1c8d13e504eb158ed0c916cc09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plantsToSpawn:
-  - {fileID: 7272926810945044985, guid: 085735d16f7f43f4cbc494635c487fa2, type: 3}
-  - {fileID: 888151722284579015, guid: 07b6e72ee8c6c6340ba9f451cce5b7b2, type: 3}
-  - {fileID: 1874671576440167401, guid: 935bb60cec6a44a4c8b8d456c53fdbf9, type: 3}
-  spawnCount: 2500
-  randomYRotation: 1
-  scaleRange: {x: 0.01, y: 0.1}
 --- !u!1 &1065449250
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,6 +688,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &2030060428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2030060430}
+  - component: {fileID: 2030060429}
+  m_Layer: 0
+  m_Name: PlantSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2030060429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030060428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79778a1c8d13e504eb158ed0c916cc09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantsToSpawn:
+  - {fileID: 7272926810945044985, guid: 085735d16f7f43f4cbc494635c487fa2, type: 3}
+  - {fileID: 888151722284579015, guid: 07b6e72ee8c6c6340ba9f451cce5b7b2, type: 3}
+  - {fileID: 1874671576440167401, guid: 935bb60cec6a44a4c8b8d456c53fdbf9, type: 3}
+  spawnCount: 2500
+  randomYRotation: 1
+  scaleRange: {x: 0.01, y: 0.1}
+--- !u!4 &2030060430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030060428}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -717,3 +748,4 @@ SceneRoots:
   - {fileID: 1238374879}
   - {fileID: 1065449253}
   - {fileID: 1009199910}
+  - {fileID: 2030060430}
