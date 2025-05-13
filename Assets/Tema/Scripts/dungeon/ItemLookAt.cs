@@ -38,5 +38,14 @@ public class ItemLookAt : MonoBehaviour
         Vector3 dir = -(player.position - transform.position).normalized;
         Quaternion targetRot = Quaternion.LookRotation(dir, Vector3.up);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, rotationSpeed * Time.fixedDeltaTime);
+
+        if (Input.GetKeyDown(KeyCode.E)) {
+            Collect();
+        }
+    }
+
+    void Collect() {
+        Debug.Log("Item Collected");
+        Destroy(gameObject);
     }
 }

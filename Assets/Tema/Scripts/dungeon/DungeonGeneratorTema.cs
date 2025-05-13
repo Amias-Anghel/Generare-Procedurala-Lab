@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class DungeonGeneratorTema : MonoBehaviour
 {
-    [SerializeField] private GameObject wall, tile, stairs;
+    [SerializeField] private GameObject wall, tile, stairs, trapTile;
 
     [SerializeField] private int dungeonWidth = 64, dungeonHeight = 64;
     [SerializeField] private int roomSizeMin = 6, roomSizeMax = 12;
@@ -43,7 +43,8 @@ public class DungeonGeneratorTema : MonoBehaviour
             levelParent.SetParent(transform);
         }
 
-        transform.position = new Vector3(0, 1000, 0);
+
+        GetComponent<PlacePlayer>().PlacePlayerInDungeon();
     }
 
     private Vector2 GenerateDungeonLevel(Vector2 prevStairs, Transform levelParent) {
@@ -160,19 +161,29 @@ public class DungeonGeneratorTema : MonoBehaviour
 
     private void InstantiateTile(int x, int y, Transform levelParent, Vector2 prevStairs, Vector2 nextStairs) {
         int h = currentDungeonLevel * dungeonLevelHeight;
+        float h_acoperis = (currentDungeonLevel + 1) * dungeonLevelHeight - 0.5f;
 
         if (tilesPositions.Contains(new Vector2(x, y))) {
             return;
         }
 
         if (prevStairs.x == x && prevStairs.y == y) {
+            Instantiate(tile, new Vector3(x, h, y), Quaternion.identity).transform.SetParent(levelParent);
             
         }
         else if (nextStairs.x == x && nextStairs.y == y) {
             Instantiate(stairs, new Vector3(x, h, y), Quaternion.identity).transform.SetParent(levelParent);
         } 
         else {
-            Instantiate(tile, new Vector3(x, h, y), Quaternion.identity).transform.SetParent(levelParent);
+            bool isTrap = Random.value > 0.9f;
+            if (isTrap) {
+                Instantiate(trapTile, new Vector3(x, h, y), Quaternion.identity).transform.SetParent(levelParent);
+                Instantiate(tile, new Vector3(x, h_acoperis, y), Quaternion.identity).transform.SetParent(levelParent);
+            } 
+            else {
+                Instantiate(tile, new Vector3(x, h, y), Quaternion.identity).transform.SetParent(levelParent);
+                Instantiate(tile, new Vector3(x, h_acoperis, y), Quaternion.identity).transform.SetParent(levelParent);
+            }
         }
 
         tilesPositions.Add(new Vector2(x, y));
